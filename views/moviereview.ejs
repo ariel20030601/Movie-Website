@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Movie Review
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/reviewpage.css">
+    <script src="../JS/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/mainpage.css">
+</head>
+<body>
+    <ul class = "NavBar" id="NavBar">
+        <li class="NavBarItemLeft"> <a href="/"> Home </a> </li>
+        <li class="NavBarItemLeft" id="MovieAddition"> <a href="/movieaddition"> Add Movie </a> </li>
+        <li class="NavBarItemRight" id="SignUpPage"><a href="/SignUp"> SignUp </a></li>
+        <li class="NavBarItemRight" id="LoginPage"> <a href="/Login">Login </a></li>
+        <li class="NavBarItemRight" id="LogOut"> <a href="/logout"> Log Out </a></li>
+        <li id="myaccount" class="NavBarItemRight"><a href="/MyAccount"> MyAccount </a> </li> 
+        <li class="NavBarItemRight" id="ProfilePic">
+            <% if (loggedInUser && loggedInUser.UserImage) { %>
+                <% const decodedImagePath = Buffer.from(loggedInUser.UserImage, 'base64').toString('ascii'); %>
+                <img src="/Images/<%= loggedInUser.UserImage %>" alt="Profile Picture" style="max-width:50px">
+            <% } %>
+            </li> </ul>
+    <h1 id="ReviewTitle"> <%= movie.Name %> </h1>
+    <img src="/Images/<%= movie.Image %>" alt="Movie Image" class="ImageReviewPage"> 
+    <div class="Description"> 
+    <h4> Director: <%= movie.Director %> </h4>
+    <h4> Rating: <%= movie.Rating %> </h4>
+    <h4> Description: </h4>
+    <p> <%= movie.Description %></p>
+    </div>
+    <br>
+    <form action="/AddComment" method="POST" onsubmit="Reload()">
+    <div class="Comment"> 
+    <h3> Rate the movie out of 10:
+    <select name="Rating" id="Rating"> 
+        <option value="10"> 10 </option>
+        <option value="9"> 9 </option>
+        <option value="8"> 8 </option>
+        <option value="7"> 7 </option>
+        <option value="6"> 6 </option>
+        <option value="5"> 5 </option>
+        <option value="4"> 4 </option>
+        <option value="3"> 3 </option>
+        <option value="2"> 2 </option>
+        <option value="1"></option>
+    </select>
+    <h3> Comment: </h3>
+    <textarea name="CommentSection" id="CommentSection" rows="4" cols="50"></textarea> <br>
+
+    <!-- Hidden Fields -->
+    <input type="hidden" id="currentUserName" name="currentUserName" value="<%= loggedInUser.username %>">
+    <input type="hidden" id="Movie" name="MovieName" value="<%= movie.Name %>">;
+    <input type="hidden" id="UserImage" name="UserImage" value="<%= loggedInUser.UserImage %>">;
+
+    <input type="Submit" value="Submit">
+    <input type="Reset" value="Reset">
+    </div>
+</form>
+
+<div class="CommentArea">
+<% commentsection.forEach(comment => { %>
+    <% if(comment.UserName && comment.Comment) {%>
+    <div class="CommentSquare">
+        <h3> Commented By <%= comment.UserName %> <img src="/Images/<%= comment.UserImage %>" alt="Profile Picture" style="max-width:50px"> <%= comment.Rating %>/10  </h3>
+        <p> " <%= comment.Comment %> " </p>
+    </div>
+    <% } %>
+   <% }) %>
+</div>
+
+
+<script> 
+
+    function Reload() {
+        alert("Sucessfully Added Commment! (Refresh the page to see the updated comment section)");
+    }
+
+    var isLoggedIn = false;
+    
+    const Name =  '<%= loggedInUser.username %>' ;
+    
+    if(Name != ''){
+        isLoggedIn = true;
+    }
+    
+    function updateNavbar() {
+        const movieAdditionElement = document.getElementById("MovieAddition");
+        const accountpage = document.getElementById('myaccount');
+        const login = document.getElementById('LoginPage');
+        const sign = document.getElementById('SignUpPage');
+        const profpic = document.getElementById('ProfilePic');
+        const logout = document.getElementById('LogOut');
+        
+        accountpage.style.display = 'none';
+        profpic.style.display = 'none';
+        logout.style.display = 'none';
+
+
+        if (isLoggedIn) {
+            movieAdditionElement.style.display = 'none';
+            console.log("MovieAddition element hidden");
+            accountpage.style.display = 'block';
+            sign.style.display = 'none';
+            login.style.display = 'none';
+            profpic.style.display = 'block';
+            logout.style.display = 'block';
+        }
+    }
+    
+    updateNavbar();
+    </script> 
+</body>

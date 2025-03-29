@@ -1,0 +1,24 @@
+form {
+    width:300px;
+    height:400px;
+    position:relative;
+    background-color:gold;
+    margin-left:42%;
+    margin-top:5%;
+}
+
+form h4 {
+    color:black;
+}
+
+h2 {
+text-align: center;
+}
+
+input[type="Submit"] {
+    margin-top:5%;
+}
+
+input[type="textbox"] {
+    width:300px;
+}

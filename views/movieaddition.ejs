@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<head>
+        <link rel="stylesheet" href="../CSS/mainpage.css">
+</head>
+<body>
+    <ul class = "NavBar">
+        <li class="NavBarItemLeft"> <a href="/"> Home </a> </li>
+        <li class="NavBarItemLeft"> <a href="/movieaddition"> Add Movie </a> </li>
+        <li class="NavBarItemRight"><a href="front.html"> SignUp </a></li>
+        <li class="NavBarItemRight"> <a href="front.html">Login </a><li>
+        <li id="myaccount" class="NavBarItemRight"><a href="/MyAccount"> MyAccount </a> </li> 
+    </ul>
+
+    <h1 id="Title"> Add A Movie </h1>
+    <form class="MovieAddition" action='/AddMovie' method='POST'> 
+        <h4> Movie Name </h4>  <input type="textbox" name="MovieName" id="MovieName"> <br>
+        <h4> Movie Rating </h4>  <input type="textbox" name="MovieRating" id="MovieRating">
+        <h4> Director </h4> <input type="textbox" name="MovieDirector" id="MovieDirector">
+        <h4> Upload Image of Movie </h4>
+        <input type="file" name="Image" id="Image">
+        <h4> Description </h4>
+        <textarea name="MovieDescription" id="MovieDescription" rows="4" cols="50"></textarea>
+    <div class="Button">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset"> 
+    </div>
+    </form>
+
+</body>

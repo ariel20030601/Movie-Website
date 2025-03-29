@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title> 
+        Movie Review
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/mainpage.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Account.css">
+</head>
+<body>
+    <ul class = "NavBar" id="NavBar">
+        <li class="NavBarItemLeft"> <a href="/"> Home </a> </li>
+        <li class="NavBarItemLeft" id="MovieAddition"> <a href="/movieaddition"> Add Movie </a> </li>
+        <li class="NavBarItemRight" id="SignUpPage"><a href="/SignUp"> SignUp </a></li>
+        <li class="NavBarItemRight" id="LoginPage"> <a href="/Login">Login </a></li>
+        <li class="NavBarItemRight" id="LogOut"> <a href="/logout"> Log Out </a></li>
+        <li id="myaccount" class="NavBarItemRight"><a href="/MyAccount"> MyAccount </a> </li> 
+        <li class="NavBarItemRight" id="ProfilePic">
+            <% if (loggedInUser && loggedInUser.UserImage) { %>
+                <% const decodedImagePath = Buffer.from(loggedInUser.UserImage, 'base64').toString('ascii'); %>
+                <img src="/Images/<%= loggedInUser.UserImage %>" alt="Profile Picture" style="max-width:50px">
+            <% } %>
+            </li> </ul>
+    <h1 id="Title"> My Account </h1>
+    <div class="AccContainer">
+        <div class="info-pair">
+        <h2> User Name: </h2> <h3> <%= loggedInUser.username %> </h3>
+        </div>
+        <div class="info-pair">
+        <h2> User Password:</h2> <h3><%= loggedInUser.password %> </h3> 
+        </div>
+        <h2> User Image: <img src="/Images/<%= loggedInUser.UserImage %>" alt="Profile Picture" style="max-width:150px"> </h2>
+        <button type="Button" class="Styled-Button" onclick="EditUser()"> Edit </button>
+    </div>
+    <div id="EditAcc">
+        <form action="UpdateAcc" method="POST" onsubmit="submitForm()">
+        <label for="editUserName"> User Name: </label>
+        <input type="text" id="editUserName" name="editUserName">
+        <label for="editUserPassword"> User Password: </label>
+        <input type="text" id="editUserPassword" name="editUserPassword">
+
+        <!-- Hidden Fields Here -->
+        <input type="hidden" id="currentUserName" name="currentUserName" value="<%= loggedInUser.username %>">
+        <input type="hidden" id="currentUserPassword" name="currentUserPassword" value="<%= loggedInUser.password %>">
+    
+
+        <label for="editUserImage"> User Image: </label>
+        <input type="file" value="Image" name="editUserImage">
+        <input type="Submit" value="Submit">
+        <input type="Reset" value="Reset">
+        </form>
+    </div>
+ <script> 
+            const editacc = document.getElementById("EditAcc");
+
+            editacc.style.display = 'none';
+
+            function submitForm() {
+
+                window.location.reload();
+
+            }
+
+            function EditUser(){
+            
+                editacc.style.display = 'inline-block';
+                document.getElementById("editUserName").value = Name;
+                document.getElementById("editUserPassword").value = Password;
+
+            }
+                var isLoggedIn = false;
+                
+                const Name =  '<%= loggedInUser.username %>' ;
+                const Password = '<%= loggedInUser.password %>';
+                
+                if(Name != ''){
+                    isLoggedIn = true;
+                }
+                
+                function updateNavbar() {
+                    const movieAdditionElement = document.getElementById("MovieAddition");
+                    const accountpage = document.getElementById('myaccount');
+                    const login = document.getElementById('LoginPage');
+                    const sign = document.getElementById('SignUpPage');
+                    const profpic = document.getElementById('ProfilePic');
+                    const logout = document.getElementById('LogOut');
+                
+                    accountpage.style.display = 'none';
+                    profpic.style.display = 'none';
+                    logout.style.display = 'none';
+                
+                    if (isLoggedIn) {
+                        movieAdditionElement.style.display = 'none';
+                        console.log("MovieAddition element hidden");
+                
+                        accountpage.style.display = 'block';
+                        sign.style.display = 'none';
+                        login.style.display = 'none';
+                        profpic.style.display = 'block';
+                        logout.style.display = 'block';
+                    }
+                }
+                
+                updateNavbar();
+ </script> 
+  </body>

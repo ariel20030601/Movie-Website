@@ -1,0 +1,24 @@
+<head>
+    <title> 
+        Movie Review
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/mainpage.css"> 
+    <link rel="stylesheet" type="text/css" href="../CSS/LoginPage.css">
+</head>
+<body>
+    <ul class = "NavBar" id="navbar">
+        <li class="NavBarItemLeft" id="HomePage"> <a href="/"> Home </a> </li>
+        <li class="NavBarItemLeft" id="MovieAddPage"> <a href="/movieaddition"> Add Movie </a> </li>
+        <li class="NavBarItemRight"><a href="/SignUp"> SignUp </a></li>
+        <li class="NavBarItemRight"> <a href="/Login">Login </a><li>
+        <li id="myaccount" class="NavBarItemRight"><a href="/MyAccount"> MyAccount </a> </li> 
+ </ul>
+ <form action="/LogUser" method="POST"> 
+    <h2> Login Page </h2>
+    <h4> Username: </h4>
+    <input type="textbox" id="Username" name="Username">
+    <h4> Password: </h4>
+    <input type="textbox" id="Password" name="Password">
+    <input type="Submit" value="Submit">
+    <input type="Reset" value="Reset">
+ </form>

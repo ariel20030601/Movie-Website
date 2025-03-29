@@ -1,0 +1,55 @@
+.AccContainer {
+    position: relative;
+    left:32%;
+    border:4px solid rgb(102, 102, 102);
+    background-color:gold;
+    width:600px;
+    height:500px;
+}
+
+
+.info-pair h3 {
+    width:50px;
+    height:20px;
+    padding:10px 75px 10px 75px;
+    background-color: white;
+    border:1px dashed black;
+    margin-left:310px;
+}
+
+.info-pair {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 10px; /* Add some space between pairs */
+}
+
+.AccContainer img {
+    text-align:center;
+    margin-left:95px;
+    border-image: linear-gradient(rgb(235, 4, 4),rgb(19, 2, 247)) 50;
+    border-width: 3px;
+    border-style: solid;
+}
+
+#EditAcc {
+    background-image: linear-gradient(rgb(252, 252, 252),gold);
+    border:3px;
+    width:1500px;
+    text-align:center;
+    margin-top:50px;
+    margin-left:200px;
+}
+
+.Styled-Button {
+    color:gold;
+    background-color:black;
+    transition:0.5s;
+    padding:10px;
+    width:100px;
+    margin-left:250px;
+}
+
+.Styled-Button:hover {
+    background-color:gold;
+    color:black;
+}

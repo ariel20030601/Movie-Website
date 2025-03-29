@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title> 
+        Movie Review
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/mainpage.css">
+</head>
+<body>
+    <ul class = "NavBar" id="NavBar">
+        <li class="NavBarItemLeft"> <a href="/"> Home </a> </li>
+        <li class="NavBarItemLeft" id="MovieAddition"> <a href="/movieaddition"> Add Movie </a> </li>
+        <li class="NavBarItemRight" id="SignUpPage"><a href="/SignUp"> SignUp </a></li>
+        <li class="NavBarItemRight" id="LoginPage"> <a href="/Login">Login </a></li>
+        <li class="NavBarItemRight" id="LogOut"> <a href="/logout"> Log Out </a></li>
+        <li id="myaccount" class="NavBarItemRight"> <a href="/MyAccount"> MyAccount </a> </li> 
+        <li class="NavBarItemRight" id="ProfilePic">
+            <% if (loggedInUser && loggedInUser.UserImage) { %>
+                <% const decodedImagePath = Buffer.from(loggedInUser.UserImage, 'base64').toString('ascii'); %>
+                <img src="/Images/<%= loggedInUser.UserImage %>" alt="Profile Picture" style="max-width:50px">
+            <% } %>
+            </li> </ul>
+<h1 id="Title"> Sneeze's Movie Reviews </h1>
+<ul>
+    <% movies.forEach(movie => { %>
+    <div class="Poster">
+    <% if (movie.Image) { %>
+        <img src="/Images/<%= movie.Image %>" alt="Movie Image" style="max-width: 200px;">
+        <div class="ReviewPage"> <a href="/ReviewPage/<%= encodeURIComponent(movie.Name) %>"> Review </a> </div>
+    <% } %>
+        <li class="MovieDisplay"> <h5> <%= movie.Name %> </h5> <h5> Rated <%= movie.Rating %> </h5> <h5> Made By <%= movie.Director %> </h5> </li>
+    </div>
+    <% }) %>
+</div>
+</ul>
+<script> 
+
+var isLoggedIn = false;
+
+const Name =  '<%= loggedInUser.username %>' ;
+
+if(Name != ''){
+    isLoggedIn = true;
+}
+
+function updateNavbar() {
+    const movieAdditionElement = document.getElementById("MovieAddition");
+    const accountpage = document.getElementById('myaccount');
+    const login = document.getElementById('LoginPage');
+    const sign = document.getElementById('SignUpPage');
+    const profpic = document.getElementById('ProfilePic');
+    const logout = document.getElementById('LogOut');
+
+    accountpage.style.display = 'none';
+    profpic.style.display = 'none';
+    logout.style.display = 'none';
+
+    if (isLoggedIn) {
+        movieAdditionElement.style.display = 'none';
+        console.log("MovieAddition element hidden");
+
+        accountpage.style.display = 'block';
+        sign.style.display = 'none';
+        login.style.display = 'none';
+        profpic.style.display = 'block';
+        logout.style.display = 'block';
+    }
+}
+
+updateNavbar();
+</script> 
+</body>
+</html>
