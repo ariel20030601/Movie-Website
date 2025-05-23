@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/profile.css" />
+    <title>Home</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div><strong>Welcome, <%= username %>!</strong></div>
+        <div class="nav-links">
+            <a href="/profile">Profile</a>
+            <a href="/home">Home</a>
+        </div>
+    </div>
+
+    <div class="profile-header">
+    <h1>Welcome, <%= username %>!</h1>
+    <div class="stats">You've written <%= reviews.length %> review(s)</div>
+  </div>
+
+  <div class="review-list">
+    <% if (reviews.length === 0) { %>
+      <p style="text-align: center;">You haven’t written any reviews yet.</p>
+    <% } else { %>
+      <% reviews.forEach(review => { %>
+        <div class="review-card">
+          <h3><%= review.movieTitle %></h3>
+          <span>Rating: <%= review.rating %> ⭐</span>
+          <p><%= review.review %></p>
+        </div>
+      <% }); %>
+    <% } %>
+  </div>
+
+  <div class="buttons">
+    <a href="/edit-profile">Edit Profile</a>
+    <a href="/logout">Logout</a>
+  </div>
+  </body>
+  </html>

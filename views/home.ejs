@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css" />
+    <title>Home</title>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div><strong>Welcome, <%= username %>!</strong></div>
+        <div class="nav-links">
+            <a href="/profile">Profile</a>
+            <a href="/home">Home</a>
+        </div>
+    </div>
+
+    <div class = "header">
+        <h1>Radical Movie Reviews</h1>
+    </div>
+    <!-- Movies Grid -->
+    <div class="movies-container">
+        <% movies.forEach(movie => { %>
+            <div class="movie-card">
+                <img class="movie-poster" src="/MoviePosters/<%= movie.imageurl %>" alt="<%= movie.name %> Poster">
+                <div class="movie-info">
+                    <div class="movie-title"> <a href="/movie/<%= movie.id%>"> <%= movie.title %> </a> </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+</html>

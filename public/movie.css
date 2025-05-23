@@ -1,0 +1,124 @@
+.movie-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #111;
+  color: gold;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  gap: 40px;
+}
+
+.movie-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.movie-info h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.movie-info p {
+  font-size: 18px;
+  color: #e0c77c;
+  line-height: 1.6;
+}
+
+.rating {
+  margin-top: 75px;
+  font-size: 35px;
+  color: #ffd700;
+}
+
+.movie-poster {
+  flex-shrink: 0;
+}
+
+.movie-poster img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.review-form-wrapper {
+  background-color: #1a1a1a;
+  color: gold;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.review-form-wrapper h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #ffd700;
+}
+
+.review-form-wrapper label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.review-form-wrapper input,
+.review-form-wrapper textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: gold;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.review-form-wrapper button {
+  margin-top: 20px;
+  background-color: gold;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.review-form-wrapper button:hover {
+  background-color: #e6c200;
+}
+
+
+.all-reviews-wrapper {
+  background-color: #1a1a1a;
+  color: gold;
+  padding: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 20px;
+}
+
+.all-reviews-wrapper h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffd700;
+}
+
+.review-box {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.15);
+}
+
+.review-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}

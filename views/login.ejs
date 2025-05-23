@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/loginstyle.css" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-container">
+    <h2>Welcome Back</h2>
+    <form action="/auth/login" method="POST">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" name="username" />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" name="password" />
+      </div>
+      <button class="login-btn" type="submit">Login</button>
+    </form>
+    <div class="bottom-text">
+      <p>Don't have an account? <a href="register">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>

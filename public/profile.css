@@ -1,0 +1,62 @@
+    .profile-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .profile-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .stats {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .review-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background-color: #1c1c1c;
+      border-left: 5px solid gold;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .review-card h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .review-card span {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
+    .review-card p {
+      margin-top: 10px;
+      color: #eee;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .buttons a {
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: background-color 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: white;
+    }
